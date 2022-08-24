@@ -11,22 +11,22 @@ def main(
     path: Path = typer.Option(
         ...,
         "--path", "-p",
-        help="Path of the sub pre-commit call."
+        help="Path of the sub pre-commit call.",
     ),
     files: Optional[List[Path]] = typer.Argument(
         None,
         help="List of files to pass to sub pre-commit.",
     ),
-):
+) -> None:
     relevant_files = []
-    if files:  # No files means --all-files was used
+    if files:  # No files mean --all-files was used
         for file in files:
             if file.is_relative_to(path):
                 relevant_files.append(file)
         if not relevant_files:
             print("Nothing to check")
             return
-    
+
     print(f"Running pre-commit for {path}:")
     print("")
     os.chdir(path)
@@ -39,14 +39,14 @@ def main(
                 str(file.relative_to(path))
                 for file
                 in relevant_files
-            ]
+            ],
         ],
     )
     if result.returncode != 0:
         sys.exit(1)
 
 
-def run():
+def run() -> None:
     typer.run(main)
 
 
