@@ -19,7 +19,7 @@ def main(
     ),
 ):
     relevant_files = []
-    if files:
+    if files:  # No files means --all-files was used
         for file in files:
             if file.is_relative_to(path):
                 relevant_files.append(file)
@@ -27,7 +27,9 @@ def main(
             print("Nothing to check, existing")
             return
     
-    print(relevant_files)
+    print(f"Running pre-commit for {path}")
+    os.chdir(path)
+    
     
 
 
