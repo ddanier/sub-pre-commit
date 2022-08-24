@@ -3,6 +3,7 @@ from pathlib import Path
 
 import sys
 import os
+import subprocess
 
 import typer
 
@@ -29,7 +30,13 @@ def main(
     
     print(f"Running pre-commit for {path}")
     os.chdir(path)
-    
+    subprocess.run(
+        [
+            "pre-commit",
+            "run",
+            *[str(file) for file in relevant_files]
+        ],
+    )
     
 
 
