@@ -1,0 +1,7 @@
+*.pyo
+*.pyc
+__pycache__
+*.egg-info
+*.egg
+/poetry.lock
+/test
