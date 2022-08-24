@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "sub-pre-commit"
+version = "0.1.0"
+description = "Run pre-commit on sub folders."
+authors = ["David Danier <danier@team23.de>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+typer = "^0.6.1"
+
+[tool.poetry.dev-dependencies]
+
+[tool.poetry.scripts]
+poetry = 'poetry.console:run'
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

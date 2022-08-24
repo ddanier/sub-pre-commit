@@ -1,0 +1,16 @@
+-   id: sub-pre-commit
+    name: Sub pre commit
+    description: Run pre-commit in a sub folder. Strip folder named for passed files.
+    entry: sub-pre-commit
+    language: python
+    stages: 
+    - commit
+    - merge-commit
+    - push
+    - prepare-commit-msg
+    - commit-msg
+    - post-checkout
+    - post-commit
+    - post-merge
+    - post-rewrite
+    - manual
