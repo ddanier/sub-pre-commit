@@ -29,7 +29,6 @@ def main(
             return
     
     print(f"Running pre-commit for {path}")
-    print(", ".join([str(file.relative_to(path)) for file in relevant_files]))
     os.chdir(path)
     subprocess.run(
         [
