@@ -29,14 +29,18 @@ def main(
             return
     
     print(f"Running pre-commit for {path}")
-    print(", ".join([str(file) for file in relevant_files]))
+    print(", ".join([str(file.relative_to(path)) for file in relevant_files]))
     os.chdir(path)
     subprocess.run(
         [
             "pre-commit",
             "run",
             "--files",
-            *[str(file) for file in relevant_files]
+            *[
+                str(file.relative_to(path))
+                for file
+                in relevant_files
+            ]
         ],
     )
     
