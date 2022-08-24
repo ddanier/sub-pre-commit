@@ -5,3 +5,4 @@ __pycache__
 *.egg
 /poetry.lock
 /test
+/dist
