@@ -1,5 +1,7 @@
 # sub-pre-commit
 
+**WARNING:** This is WORK IN PROGRESS and is currently NOT WORKING. DO NOT TRY TO USE!!
+
 When dealing with more complex repositories or simply put monorepos
 `pre-commit` will come to its limits. The reason is mainly that `pre-commit`
 only allows for one global config file which will create difficulties when
