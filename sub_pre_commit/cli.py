@@ -34,6 +34,7 @@ def main(
         [
             "pre-commit",
             "run",
+            "--files",
             *[str(file) for file in relevant_files]
         ],
     )
