@@ -3,9 +3,3 @@
     description: Run pre-commit in a sub folder. Strip folder named for passed files.
     entry: sub-pre-commit
     language: python
-    stages: 
-    - commit
-    - merge-commit
-    - push
-    - post-commit
-    - manual
