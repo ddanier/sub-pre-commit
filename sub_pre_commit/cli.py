@@ -18,13 +18,9 @@ def main(
         help="List of files to pass to sub pre-commit.",
     ),
 ):
-    from pprint import pprint
-    pprint(files)
-    pprint({
-        k: v
-        for k, v
-        in os.environ.items()
-    })
+    for file in files:
+        if file.is_relative_to(path):
+            print(file)
 
 
 def run():
