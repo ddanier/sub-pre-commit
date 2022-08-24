@@ -12,7 +12,7 @@ typer = "^0.6.1"
 [tool.poetry.dev-dependencies]
 
 [tool.poetry.scripts]
-sub-pre-commit = 'sub_pre_commit.cli:main'
+sub-pre-commit = 'sub_pre_commit.cli:run'
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
