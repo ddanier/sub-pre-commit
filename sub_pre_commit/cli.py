@@ -25,7 +25,7 @@ def main(
             if file.is_relative_to(path):
                 relevant_files.append(file)
         if not relevant_files:
-            print("Nothing to check, existing")
+            print("Nothing to check")
             return
     
     print(f"Running pre-commit for {path}:")
