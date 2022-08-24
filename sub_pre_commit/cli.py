@@ -28,7 +28,8 @@ def main(
             print("Nothing to check, existing")
             return
     
-    print(f"Running pre-commit for {path}")
+    print(f"Running pre-commit for {path}:")
+    print("")
     os.chdir(path)
     result = subprocess.run(
         [
