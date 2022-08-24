@@ -3,6 +3,7 @@ from pathlib import Path
 
 import os
 import subprocess
+import sys
 
 import typer
 
@@ -29,7 +30,7 @@ def main(
     
     print(f"Running pre-commit for {path}")
     os.chdir(path)
-    subprocess.run(
+    result = subprocess.run(
         [
             "pre-commit",
             "run",
@@ -41,6 +42,8 @@ def main(
             ]
         ],
     )
+    if result.returncode != 0:
+        sys.exit(1)
 
 
 def run():
