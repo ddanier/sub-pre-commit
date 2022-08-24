@@ -1,7 +1,6 @@
-from typing import ItemsView, List, Optional
+from typing import List, Optional
 from pathlib import Path
 
-import sys
 import os
 import subprocess
 
