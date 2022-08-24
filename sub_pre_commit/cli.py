@@ -28,7 +28,9 @@ def main(
             return
 
     print(f"Running pre-commit for {path}:")
+    print("-" * 79)
     print("")
+
     os.chdir(path)
     result = subprocess.run(
         [
@@ -42,6 +44,11 @@ def main(
             ],
         ],
     )
+
+    print("")
+    print("-" * 79)
+    print("")
+
     if result.returncode != 0:
         sys.exit(1)
 
