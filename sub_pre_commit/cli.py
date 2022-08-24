@@ -1,4 +1,4 @@
-from typing import List, Optional
+from typing import ItemsView, List, Optional
 from pathlib import Path
 
 import sys
@@ -20,7 +20,11 @@ def main(
 ):
     from pprint import pprint
     pprint(files)
-    pprint(os.environ)
+    pprint({
+        k: v
+        for k, v
+        in os.environ.items()
+    })
 
 
 def run():
