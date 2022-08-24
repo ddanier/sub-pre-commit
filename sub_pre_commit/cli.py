@@ -1,9 +1,8 @@
-from typing import List, Optional
-from pathlib import Path
-
 import os
 import subprocess
 import sys
+from pathlib import Path
+from typing import List, Optional
 
 import typer
 
