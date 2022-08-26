@@ -1,7 +1,5 @@
 # sub-pre-commit
 
-**WARNING:** This is WORK IN PROGRESS and is currently NOT WORKING. DO NOT TRY TO USE!!
-
 When dealing with more complex repositories or simply put monorepos
 `pre-commit` will come to its limits. The reason is mainly that `pre-commit`
 only allows for one global config file which will create difficulties when
@@ -49,7 +47,7 @@ be able to handle this correctly as it runs in the repository root - which
 means the path would have to be passed as `src/backend/migrations/`, but
 using this will break your normal CLI usage.
 
-This of course would work if you just put the `.pre-commit-config.yaml` into
+This of course could work if you just put the `.pre-commit-config.yaml` into
 `src/backend/`, but then `pre-commit` would fail to use the config. Also we
 still could only have one pre-commit hook installed and thus cannot support
 frontend and backend.
@@ -81,8 +79,12 @@ then execute `pre-commit` again, but will first:
 * Take the list of files `pre-commit` passed and remove the prefix - according
   to the path given in `-p`.
 * If no files match the own path prefix - the `sub-pre-commit` will just exit.
+  (This is just to be sure, the config already filtered for the correct path)
 * Change the working directory into the folder passed using `-p`.
 * Then it will execute `pre-commit run` passing all those matched files.
+  (Actually what happens is quite more complex, as `pre-commit` will not allow
+  this. `sub-pre-commit` will run a monkey patched version of `pre-commit`. See
+  "Warnings" below)
 * Your linter config paths now just match. 😉👍
 
 Looking at `src/backend/.pre-commit-config.yaml` this could then look like:
@@ -99,3 +101,15 @@ repos:
           - flake8-annotations
           # ...
 ```
+
+## Warnings
+
+`sub-pre-commit` will itself install `pre-commit` as a dependency, so it can
+patch the behaviour of `pre-commit` to not always run all commands from the git
+repository root. This may cause issues in the future and makes choosing the
+`sub-pre-commit` version accordingly. `sub-pre-commit` will include tags for
+different versions of `pre-commit`, so you are required to keep those in sync.
+Running `pre-commit autoupdate` might break your configuration as the
+`pre-commit` version included in `sub-pre-commit` might then be different.
+
+Use at your own risk.
