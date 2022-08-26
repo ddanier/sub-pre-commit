@@ -8,6 +8,7 @@ license = "MIT"
 [tool.poetry.dependencies]
 python = "^3.8"
 typer = "^0.6.1"
+pre-commit = "^2.20.0"
 
 [tool.poetry.dev-dependencies]
 isort = "^5.10.1"
@@ -20,6 +21,7 @@ flake8-debugger = "^4.1.2"
 
 [tool.poetry.scripts]
 sub-pre-commit = 'sub_pre_commit.cli:run'
+sub-pre-commit-run = 'sub_pre_commit.run:run'
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

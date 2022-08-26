@@ -31,19 +31,25 @@ def main(
     print("-" * 79)
     print("")
 
-    os.chdir(path)
-    result = subprocess.run(
-        [
-            "pre-commit",
-            "run",
+    os.chdir(str(path.resolve()))
+
+    cmd = [
+        "sub-pre-commit-run",
+        "run",
+    ]
+    if files:
+        cmd.extend([
             "--files",
             *[
                 str(file.relative_to(path))
                 for file
                 in relevant_files
             ],
-        ],
-    )
+        ])
+    else:
+        cmd.append("--all-files")
+
+    result = subprocess.run(cmd)
 
     print("")
     print("-" * 79)
