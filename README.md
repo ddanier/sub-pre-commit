@@ -60,7 +60,7 @@ repository root:
 ```yaml
 repos:
   - repo: https://github.com/ddanier/sub-pre-commit.git
-    rev: v0.1.0
+    rev: v2.20.0  # MUST match your pre-commit version
     hooks:
       - id: sub-pre-commit
         alias: frontend
