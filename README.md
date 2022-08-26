@@ -78,10 +78,10 @@ repos:
 then execute `pre-commit` again, but will first:
 * Take the list of files `pre-commit` passed and remove the prefix - according
   to the path given in `-p`.
-* If no files match the own path prefix - the `sub-pre-commit` will just exit.
+* If no files match the own path prefix - the `sub-pre-commit` will just exit.  
   (This is just to be sure, the config already filtered for the correct path)
 * Change the working directory into the folder passed using `-p`.
-* Then it will execute `pre-commit run` passing all those matched files.
+* Then it will execute `pre-commit run` passing all those matched files.  
   (Actually what happens is quite more complex, as `pre-commit` will not allow
   this. `sub-pre-commit` will run a monkey patched version of `pre-commit`. See
   "Warnings" below)
