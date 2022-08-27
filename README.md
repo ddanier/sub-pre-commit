@@ -67,11 +67,13 @@ repos:
         name: "pre-commit for src/frontend/"
         args: ["-p", "src/frontend"]
         files: "^src/frontend/.*"
+        stages: ["commit"]
       - id: sub-pre-commit
         alias: backend
         name: "pre-commit for src/backend/"
         args: ["-p", "src/backend"]
         files: "^src/backend/.*"
+        stages: ["commit"]
 ```
 
 `sub-pre-commit` will now be called by `pre-commit` like any other hook. It will
