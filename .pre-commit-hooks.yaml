@@ -3,3 +3,4 @@
     description: Run pre-commit in a sub folder. Strip folder named for passed files.
     entry: sub-pre-commit
     language: python
+    require_serial: true
