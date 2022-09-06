@@ -115,3 +115,16 @@ Running `pre-commit autoupdate` might break your configuration as the
 `pre-commit` version included in `sub-pre-commit` might then be different.
 
 Use at your own risk.
+
+## Further reading
+
+See https://medium.com/@david.danier/about-pre-commit-when-working-with-monorepos-8d9aaa23ab08
+for a more detailed description on why this package exists.
+
+# Contributing
+
+If you want to contribute to this project, feel free to just fork the project,
+create a dev branch in your fork and then create a pull request (PR). If you
+are unsure about whether your changes really suit the project please create an
+issue first, to talk about this.
+
