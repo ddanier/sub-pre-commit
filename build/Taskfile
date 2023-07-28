@@ -42,6 +42,6 @@ task:release() {
     task:poetry add "pre-commit@$V"
     task:poetry version "$V"
     git add ../pyproject.toml
-    git commit -m "Release $V"
+    git commit -m "Update to match pre-commit release $V"
     git tag "v$V"
 }
