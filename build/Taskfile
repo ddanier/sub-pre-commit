@@ -31,3 +31,17 @@ task:lint() {
 task:publish() {
     task:poetry publish --build
 }
+
+task:release() {
+    local V="$1"
+    if [[ -z "$V" ]]; then
+        echo "Usage: task:release <version>"
+        exit 1
+    fi
+
+    task:poetry add "pre-commit@$V"
+    task:poetry version "$V"
+    git add ../pyproject.toml
+    git commit -m "Release $V"
+    git tag "v$V"
+}
