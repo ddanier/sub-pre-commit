@@ -2,46 +2,46 @@
 # b5 Taskfile, see https://git.team23.de/build/b5 for details
 
 task:install() {
-    task:poetry install
+  task:poetry install
 }
 
 task:update() {
-    task:install
+  task:install
 }
 
 task:poetry() {
-    (
-        cd .. && \
-        poetry "$@"
-    )
+  (
+    cd .. &&
+      poetry "$@"
+  )
 }
 
 task:isort() {
-    task:poetry run isort sub_pre_commit
+  task:poetry run isort sub_pre_commit
 }
 
 task:flake8() {
-    task:poetry run flake8 sub_pre_commit
+  task:poetry run flake8 sub_pre_commit
 }
 
 task:lint() {
-    task:flake8
+  task:flake8
 }
 
 task:publish() {
-    task:poetry publish --build
+  task:poetry publish --build
 }
 
 task:release() {
-    local V="$1"
-    if [[ -z "$V" ]]; then
-        echo "Usage: task:release <version>"
-        exit 1
-    fi
+  local V="$1"
+  if [[ -z "$V" ]]; then
+    echo "Usage: task:release <version>"
+    exit 1
+  fi
 
-    task:poetry add "pre-commit@$V"
-    task:poetry version "$V"
-    git add ../pyproject.toml
-    git commit -m "Update to match pre-commit release $V"
-    git tag "v$V"
+  task:poetry add "pre-commit@$V"
+  task:poetry version "$V"
+  git add ../pyproject.toml
+  git commit -m "Update to match pre-commit release $V"
+  git tag "v$V"
 }
