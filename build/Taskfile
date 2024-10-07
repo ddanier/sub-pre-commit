@@ -12,7 +12,7 @@ task:update() {
 task:poetry() {
   (
     cd .. &&
-      poetry "$@"
+    poetry "$@"
   )
 }
 
