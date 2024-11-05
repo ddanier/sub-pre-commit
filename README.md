@@ -60,20 +60,20 @@ repository root:
 ```yaml
 repos:
   - repo: https://github.com/ddanier/sub-pre-commit.git
-    rev: v2.20.0  # MUST match your pre-commit version
+    rev: v4.0.1  # MUST match your pre-commit version
     hooks:
       - id: sub-pre-commit
         alias: frontend
         name: "pre-commit for src/frontend/"
         args: ["-p", "src/frontend"]
         files: "^src/frontend/.*"
-        stages: ["commit"]
+        stages: ["pre-commit"]
       - id: sub-pre-commit
         alias: backend
         name: "pre-commit for src/backend/"
         args: ["-p", "src/backend"]
         files: "^src/backend/.*"
-        stages: ["commit"]
+        stages: ["pre-commit"]
 ```
 
 `sub-pre-commit` will now be called by `pre-commit` like any other hook. It will
@@ -108,7 +108,7 @@ repos:
 
 `sub-pre-commit` will itself install `pre-commit` as a dependency, so it can
 patch the behaviour of `pre-commit` to not always run all commands from the git
-repository root. This may cause issues in the future and makes choosing the
+repository root. This may cause issues in the future and requires choosing the
 `sub-pre-commit` version accordingly. `sub-pre-commit` will include tags for
 different versions of `pre-commit`, so you are required to keep those in sync.
 Running `pre-commit autoupdate` might break your configuration as the
