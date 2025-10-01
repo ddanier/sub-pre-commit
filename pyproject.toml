@@ -1,28 +1,31 @@
-[tool.poetry]
+[project]
 name = "sub-pre-commit"
-version = "4.3.0-2"
+version = "4.2.0-2"
 description = "Run pre-commit on sub folders."
-authors = ["David Danier <danier@team23.de>"]
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    {name = "David Danier", email = "david.danier@gmail.com"},
+]
 license = "MIT"
+dependencies = [
+    "pre-commit==4.3.0",
+    "typer>=0.19.2",
+]
 
-[tool.poetry.dependencies]
-python = "^3.10"
-typer = "^0.19.1"
-pre-commit = "4.3.0"
+[dependency-groups]
+dev = [
+    "ruff>=0.13.2",
+]
 
-[tool.poetry.dev-dependencies]
-isort = "^5.10.1"
-flake8 = "^5.0.4"
-flake8-builtins = "^1.5.3"
-flake8-annotations = "^2.9.1"
-flake8-commas = "^2.1.0"
-flake8-isort = "^4.2.0"
-flake8-debugger = "^4.1.2"
-
-[tool.poetry.scripts]
+[project.scripts]
 sub-pre-commit = 'sub_pre_commit.cli:run'
 sub-pre-commit-run = 'sub_pre_commit.run:run'
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["uv_build>=0.8.22,<0.9.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "sub_pre_commit"
+module-root = ""

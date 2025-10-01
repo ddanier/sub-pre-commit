@@ -128,3 +128,5 @@ create a dev branch in your fork and then create a pull request (PR). If you
 are unsure about whether your changes really suit the project please create an
 issue first, to talk about this.
 
+Note that `sub-pre-commit` uses [`nur`](https://github.com/nur-taskrunner/nur) as it's task runner.
+This means you can use `nur install` to get things up locally using the `uv` package manager.

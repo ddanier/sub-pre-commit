@@ -1,0 +1,32 @@
+def "nur install" [] {
+    uv sync --group dev
+}
+
+def "nur update" [] {
+    uv sync --group dev
+}
+
+def --wrapped "nur ruff" [
+    ...args,
+] {
+    uv run ruff ...$args
+}
+
+def "nur lint" [] {
+    nur ruff check .
+}
+
+def "nur publish" [] {
+    nur ruff check .
+}
+
+def "nur release" [
+    version,
+] {
+  uv add $"pre-commit==($version)"
+  uv version $version
+  nur update
+  git add pyproject.toml
+  git commit -m $"Update to match pre-commit release ($version)"
+  git tag $"v($version)"
+}
