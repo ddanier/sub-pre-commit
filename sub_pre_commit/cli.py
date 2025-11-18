@@ -17,6 +17,11 @@ def main(
         None,
         help="List of files to pass to sub pre-commit.",
     ),
+    config_file: str = typer.Option(
+        ".pre-commit-config.yaml",
+        "--config-file", "-c",
+        help="Path to the configuration file for sub pre-commit.",
+    ),
 ) -> None:
     relevant_files = []
     if files:  # No files mean --all-files was used
@@ -36,6 +41,8 @@ def main(
     cmd = [
         "sub-pre-commit-run",
         "run",
+        "--config-file",
+        config_file,
     ]
     if files:
         cmd.extend([
