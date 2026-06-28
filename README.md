@@ -1,5 +1,15 @@
 # sub-pre-commit
 
+> [!IMPORTANT]
+> `sub-pre-commit` is currently only maintained on a minimum level as I switched
+> all my own projects to using [`prek`](https://prek.j178.dev/) instead. `prek`
+> is a drop in replacement for `pre-commit` that has builtin support for
+> monorepos and thus does solve what `sub-pre-commit` was initially meant to
+> solve without any workarounds. See
+> [prek workspace mode](https://prek.j178.dev/workspace/) for docs on howto
+> use `prek` with a monorepo.  
+> I can only recommend switching to `prek`.
+
 When dealing with more complex repositories or simply put monorepos
 `pre-commit` will come to its limits. The reason is mainly that `pre-commit`
 only allows for one global config file which will create difficulties when
