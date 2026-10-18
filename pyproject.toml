@@ -1,15 +1,15 @@
 [project]
 name = "sub-pre-commit"
-version = "4.6.2"
+version = "4.7.0"
 description = "Run pre-commit on sub folders."
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 authors = [
     {name = "David Danier", email = "david.danier@gmail.com"},
 ]
 license = "MIT"
 dependencies = [
-    "pre-commit==4.6.2",
+    "pre-commit==4.7.0",
     "typer>=0.19.2",
 ]
 
